@@ -1,0 +1,19 @@
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+    - "8080:80"
+
+  juiceshop:
+    image: bkimminich/juice-shop
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports: 
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+    
