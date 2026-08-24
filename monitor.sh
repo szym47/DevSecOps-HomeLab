@@ -2,7 +2,7 @@
 
 source .env
 
-WEBHOOK_URL=$DISCORD_WEBHOOK
+WEBHOOK_URL=$DISCORD_SYSTEM_ALERT_WEBHOOK
 THRESHOLD=1000 #próg alarmowy w MB
 
 AVAILABLE_RAM=$(free -m | grep 'Mem:' | awk '{print $7}')
