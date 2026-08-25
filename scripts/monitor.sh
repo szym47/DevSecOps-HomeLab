@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .env
+source "$(dirname "$0")/../.env"
 
 WEBHOOK_URL=$DISCORD_SYSTEM_ALERT_WEBHOOK
 THRESHOLD=1000 #próg alarmowy w MB

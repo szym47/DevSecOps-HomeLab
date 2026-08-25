@@ -1,6 +1,6 @@
 # DevSecOps - lekki IDS 
 #zaladowanie z env
-$EnvFile = Get-Content .env
+$EnvFile = Get-Content "$PSScriptRoot\..\.env"
 $WebhookUrl = ($EnvFile | Where-Object {$_ -match '^DISCORD_IDS_WEBHOOK=' }) -replace '^DISCORD_IDS_WEBHOOK=', ''
 $WebhookUrl =$WebhookUrl.Trim()
 

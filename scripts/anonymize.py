@@ -4,7 +4,9 @@ from faker import Faker
 from dotenv import load_dotenv
 
 # 1. Załadowanie hasła z .env
-load_dotenv()
+current_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(current_dir, '..', '.env')
+load_dotenv(dotenv_path=env_path)
 DB_PASSWORD = os.getenv("DB_PASSWORD") 
 
 # 2. Faker dla danych pl
