@@ -5,6 +5,8 @@ Projekt DevSecOps HomeLab to moje autorskie środowisko testowe, w którym w pra
 Projekt ten to moje portfolio – stworzyłem je, aby przekuć wiedzę akademicką w realne umiejętności. \
 Samodzielnie zbudowałem tu infrastrukturę, napisałem skrypty automatyzujące, a następnie przeprowadziłem kontrolowane ataki, by na koniec zaprogramować własny mechanizm detekcji intruzów.
 
+> 💡 **Wskazówka:** GitHub po cofnięciu strony domyślnie zwija wszystkie otwarte sekcje. Aby wygodnie przeglądać galerie zdjęć (zrzuty ekranu) i nie tracić postępu czytania, polecam klikać w nie **środkowym przyciskiem myszy (scrollem)**, by otworzyć je w nowej karcie.
+
 <font size=3>Poniższe diagramy przedstawiają architekturę sieciową oraz przepływ pracy w projekcie.</font>
 
 ---
@@ -94,22 +96,22 @@ Postawienie odizolowanego środowiska kontenerowego: webowej aplikacji testowej 
 > Pomyślne przekierowanie ruchu przez NGINX do aplikacji docelowej, przy jednoczesnym zablokowaniu bezpośredniego dostępu do kontenera z pominięciem bramy.
 
 <p align="center">
-  <a href="docs/nginx_proxy_success.png" target="_blank"><img src="docs/nginx_proxy_success.png" width="48%" title="Bezpieczny dostęp przez port 8080" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/nginx_proxy_blocked.png" target="_blank"><img src="docs/nginx_proxy_blocked.png" width="48%" title="Zablokowany bezpośredni dostęp (port 3000)" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+ <img src="docs/nginx_proxy_success.png" width="48%" title="Bezpieczny dostęp przez port 8080" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+ <img src="docs/nginx_proxy_blocked.png" width="48%" title="Zablokowany bezpośredni dostęp (port 3000)" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **2. Weryfikacja zabezpieczeń (Rate Limiting)**
 > Pomyślne zablokowanie ataku wolumetrycznego i zwrócenie błędu 503 (Service Temporarily Unavailable) po przekroczeniu dozwolonej liczby żądań.
 
 <p align="center">
-  <a href="docs/nginx_rate_limiting.png" target="_blank"><img src="docs/nginx_rate_limiting.png" width="80%" title="Błąd 503 Service Temporarily Unavailable" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/nginx_rate_limiting.png" width="80%" title="Błąd 503 Service Temporarily Unavailable" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **3. Inicjalizacja bazy danych w izolowanym kontenerze**
 > Pomyślny start kontenera MSSQL Server, który w Etapie II posłużył mi do nauki zarządzania wrażliwymi danymi (PII).
 
 <p align="center">
-  <a href="docs/mssql_startup_logs.png" target="_blank"><img src="docs/mssql_startup_logs.png" width="70%" title="Logi startowe MSSQL" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/mssql_startup_logs.png" width="70%" title="Logi startowe MSSQL" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 </details>
@@ -141,26 +143,26 @@ Stworzenie systemu monitorującego zasoby serwera i logi bezpieczeństwa w czasi
 > Skrypt Bash (odczyt zmiennych, instrukcje warunkowe, payload JSON) zintegrowany z harmonogramem Cron oraz widoczne alerty systemowe dostarczone na kanał deweloperski. *(na potrzeby testów i zaprezentowania alertów na komunikatorze, próg alarmowy RAM został chwilowo podniesiony).*
 
 <p align="center">
-  <a href="docs/bash_monitor_script.png" target="_blank"><img src="docs/bash_monitor_script.png" width="48%" title="skrypt Bash" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/crontab_schedule.png" target="_blank"><img src="docs/crontab_schedule.png" width="48%" title="harmonogram cron" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/bash_monitor_script.png" width="48%" title="skrypt Bash" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/crontab_schedule.png" width="48%" title="harmonogram cron" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 <p align="center">
-  <a href="docs/bash_monitor_output.png" target="_blank"><img src="docs/bash_monitor_output.png" width="48%" title="stan serwera w terminalu" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/discord_ram_alerts.png" target="_blank"><img src="docs/discord_ram_alerts.png" width="48%" title="alert serwera na discord" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/bash_monitor_output.png" width="48%" title="stan serwera w terminalu" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/discord_ram_alerts.png" width="48%" title="alert serwera na discord" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **2. Operacje na danych (SQL Seeding)**
 > Bezpośrednia interakcja z kontenerem bazy danych poprzez natywny interfejs `sqlcmd`. Inicjalizacja tabeli i pomyślne wprowadzenie testowych danych wrażliwych (imiona, e-mail, PESEL).
 
 <p align="center">
-  <a href="docs/sqlcmd_data_seeding.png" target="_blank"><img src="docs/sqlcmd_data_seeding.png" width="89%" title="tworzenie tabeli i wprowadzanie PII" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/sqlcmd_data_seeding.png" width="89%" title="tworzenie tabeli i wprowadzanie PII" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **3. Inteligentna anonimizacja danych (Python SecOps)**
 > Wykonanie automatycznego backupu i zastąpienie danych wrażliwych (PII) realistycznymi odpowiednikami przy użyciu izolowanego środowiska wirtualnego (`venv`).
 
 <p align="center">
-  <a href="docs/python_faker_anonymization.png" target="_blank"><img src="docs/python_faker_anonymization.png" width="48%" title="Anonimizacja przy użyciu biblioteki Faker" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/python_faker_anonymization.png" width="48%" title="Anonimizacja przy użyciu biblioteki Faker" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 </details>
@@ -194,23 +196,23 @@ Przeprowadzenie kontrolowanych testów penetracyjnych na własną infrastruktur�
 > Skanowanie infrastruktury przy użyciu środowiska Kali Linux. Wyniki z Nmapa ujawniające strukturę sieci oraz logi ze skanera Nikto wskazujące na architektoniczne braki w NGINX.
 
 <p align="center">
-  <a href="docs/nmap_ping_scan.png" target="_blank"><img src="docs/nmap_ping_scan.png" width="48%" title="ping scan w Nmap" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/nmap_service_scan.png" target="_blank"><img src="docs/nmap_service_scan.png" width="48%" title="skan usług w Nmap" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/nmap_ping_scan.png" width="48%" title="ping scan w Nmap" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/nmap_service_scan.png" width="48%" title="skan usług w Nmap" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 <p align="center">
-  <a href="docs/nikto_scan.png" target="_blank"><img src="docs/nikto_scan.png" width="70%" title="skan Nikto" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/nikto_scan.png" width="70%" title="skan Nikto" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **2. Faza Eksploatacji (SQL Injection & XSS)**
 > Przechwycone w narzędziu Burp Suite żądanie HTTP z ładunkiem SQLi, efekt przejęcia sesji konta 'admin' oraz wywołanie złośliwego skryptu (XSS) i listowanie otwartego katalogu na serwerze FTP.
 
 <p align="center">
-  <a href="docs/burp_sqli_injection.png" target="_blank"><img src="docs/burp_sqli_injection.png" width="48%" title="SQLi w Burp Suite" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/xss_alert.png" target="_blank"><img src="docs/xss_alert.png" width="48%" title="atak XSS" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/burp_sqli_injection.png" width="48%" title="SQLi w Burp Suite" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/xss_alert.png" width="48%" title="atak XSS" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 <p align="center">
-  <a href="docs/juice_shop_admin.png" target="_blank"><img src="docs/juice_shop_admin.png" width="48%" title="przejęcie konta admina" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/open_ftp_directory.png" target="_blank"><img src="docs/open_ftp_directory.png" width="48%" title="ukryty katalog FTP" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/juice_shop_admin.png" width="48%" title="przejęcie konta admina" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/open_ftp_directory.png" width="48%" title="ukryty katalog FTP" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 **3. Zagrożenie Wewnętrzne (Insider Threat - BadUSB)**
@@ -218,7 +220,7 @@ Przeprowadzenie kontrolowanych testów penetracyjnych na własną infrastruktur�
 > *Rekomendacja mitygacji: Wdrożenie polityki Clean Desk (Win+L) oraz blokada nieznanych urządzeń typu HID przez systemowe reguły GPO.*
 
 <p align="center">
-  <a href="docs/badusb_discord_exfiltration.png" target="_blank"><img src="docs/badusb_discord_exfiltration.png" title="Wysłanie .env na Discord" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/badusb_discord_exfiltration.png" title="Wysłanie .env na Discord" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 
@@ -226,11 +228,11 @@ Przeprowadzenie kontrolowanych testów penetracyjnych na własną infrastruktur�
 > odfiltrowane ślady z logów Dockera, działający skrypt `ids_monitor.ps1` oraz natychmiastowe alerty o zagrożeniu dostarczone do zespołu SOC na Discordzie.
 
 <p align="center">
-  <a href="docs/powershell_log_forensics.png" target="_blank"><img src="docs/powershell_log_forensics.png" width="98%" title="filtrowanie w logach" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/powershell_log_forensics.png" width="98%" title="filtrowanie w logach" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 <p align="center">
-  <a href="docs/ids_script_and_alerts.png" target="_blank"><img src="docs/ids_script_and_alerts.png" width="58%" title="skrypt IDS i output" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
-  <a href="docs/discord_ids_alerts.png" target="_blank"><img src="docs/discord_ids_alerts.png" width="38%" title="alerty wlamania na Discordzie" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/ids_script_and_alerts.png" width="58%" title="skrypt IDS i output" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
+  <img src="docs/discord_ids_alerts.png" width="38%" title="alerty wlamania na Discordzie" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 
@@ -264,7 +266,7 @@ Stworzenie skryptu startowego, który automatycznie przygotowuje środowisko, ro
 > Spójne, ustandaryzowane logi systemowe (`[INFO]`, `[OK]`, `[BLAD]`) prezentujące udany proces rozwiązywania zależności, walidacji portów i ostatecznego, bezpiecznego podniesienia środowiska kontenerowego.
 
 <p align="center">
-  <a href="docs/deploy_script.png" target="_blank"><img src="docs/deploy_script.png" width="60%" title="Automatyczne instalowanie i weryfikacja skryptem startowym" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;"></a>
+  <img src="docs/deploy_script.png" width="60%" title="Automatyczne instalowanie i weryfikacja skryptem startowym" style="border: 1px solid #444; border-radius: 6px; vertical-align: top;">
 </p>
 
 </details>
